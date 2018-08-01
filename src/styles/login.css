@@ -1,0 +1,168 @@
+/*
+ * Copyright (c) 2013 Thibaut Courouble
+ * http://www.cssflow.com
+ *
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * View the Sass/SCSS source at:
+ * http://www.cssflow.com/snippets/facebook-login-form/demo/scss
+ *
+ * Original PSD by Alex Montague: http://goo.gl/lMwBA
+ */
+ @import url(http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
+ body {
+    background-image: url("https://www.roastbrief.com.mx/wp-content/uploads/2017/11/group_91913569_LARGE.jpg");
+ }
+ 
+ input, textarea, select, label {
+   font-family: inherit;
+   font-size: 14px;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+ }
+ 
+ .login {
+   margin: 30px auto;
+   padding: 18px 20px;
+   width: 250px;
+   background: #3f65b7;
+   background-clip: padding-box;
+   border: 5px solid yellow;
+   border-bottom-color: yellow;
+   border-radius: 5px;
+   background-image: -webkit-radial-gradient(cover, #437dd6, #3960a6);
+   background-image: -moz-radial-gradient(cover, #437dd6, #3960a6);
+   background-image: -o-radial-gradient(cover, #437dd6, #3960a6);
+   background-image: radial-gradient(cover, #437dd6, #3960a6);
+   -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.5);
+   box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.5);
+ }
+ 
+ .login > h1 {
+   margin-bottom: 20px;
+   font-size: 16px;
+   font-weight: bold;
+   color: white;
+   text-align: center;
+   text-shadow: 0 -1px rgba(0, 0, 0, 0.4);
+ }
+ 
+ .login-input {
+   display: block;
+   width: 100%;
+   height: 37px;
+   margin-bottom: 20px;
+   padding: 0 9px;
+   color: white;
+   text-shadow: 0 1px black;
+   background: #2b3e5d;
+   border: 3px solid yellow;
+   border-top-color: yellow;
+   border-radius: 6px;
+   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0));
+   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0));
+   background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0));
+   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0));
+   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.2);
+   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.2);
+ }
+ 
+ .login-input:focus {
+   outline: 0;
+   background-color: yellow;
+   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 4px 1px rgba(255, 255, 255, 0.6);
+   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 4px 1px rgba(255, 255, 255, 0.6);
+ }
+ 
+ .lt-ie9 .login-input { line-height: 35px; }
+ 
+ .login-submit {
+   display: block;
+   width: 100%;
+   height: 37px;
+   margin-bottom: 15px;
+   font-size: 14px;
+   font-weight: bold;
+   color: rgb(170, 170, 15);
+   text-align: center;
+   text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+   background: #adcbfa;
+   background-clip: padding-box;
+   border: 3px solid yellow;
+   border-bottom-color: yellow;
+   border-radius: 4px;
+   cursor: pointer;
+   background-image: -webkit-linear-gradient(top, #d0e1fe, #96b8ed);
+   background-image: -moz-linear-gradient(top, #d0e1fe, #96b8ed);
+   background-image: -o-linear-gradient(top, #d0e1fe, #96b8ed);
+   background-image: linear-gradient(to bottom, #d0e1fe, #96b8ed);
+   -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 7px rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.15);
+   box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 7px rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.15);
+ }
+ 
+ .login-submit:active {
+   background: #a4c2f3;
+   -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.1);
+   box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.1);
+ }
+ 
+ .login-help {
+   text-align: center;
+ }
+ 
+ .login-help > a {
+   font-size: 11px;
+   color: #d4deef;
+   text-decoration: none;
+   text-shadow: 0 -1px rgba(0, 0, 0, 0.4);
+ }
+ 
+ .login-help > a:hover {
+   text-decoration: underline;
+ }
+ 
+ ::-moz-focus-inner {
+   padding: 0;
+   border: 0;
+ }
+ 
+ :-moz-placeholder { color: #bcc0c8 !important; }
+ ::-webkit-input-placeholder { color: #bcc0c8; }
+ :-ms-input-placeholder { color: #bcc0c8 !important; }
+
+ body { padding: 2em; }
+
+
+/* Shared */
+.loginBtn {
+  box-sizing: border-box;
+  position: relative;
+  /* width: 13em;  - apply for fixed size */
+  margin: 0.2em;
+  padding: 0 15px 0 46px;
+  border: none;
+  text-align: left;
+  line-height: 34px;
+  white-space: nowrap;
+  border-radius: 0.2em;
+  font-size: 16px;
+  color: #FFF;
+}
+.loginBtn:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 100%;
+}
+.loginBtn:focus {
+  outline: none;
+}
+.loginBtn:active {
+  box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
+}
+ 
