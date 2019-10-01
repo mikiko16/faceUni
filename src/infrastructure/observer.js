@@ -1,7 +1,6 @@
 let subscriptions = {
     'loginUser': [],
-    'notification': [],
-    id: ''
+    'notification': []
 };
 
 export default {
@@ -9,13 +8,8 @@ export default {
         loginUser: 'loginUser',
         notification: 'notification'
     },
-    subscribe: (eventName, fn) => {
-        subscriptions[eventName].push(fn);
-    },
-    trigger: (eventName, data) => {
-        subscriptions[eventName].forEach(fn => fn(data));
-    },
-    setId: (newId) => {
-        subscriptions.id= newId;
-    }
+    subscribe: (eventName, fn) => 
+        subscriptions[eventName].push(fn),
+    trigger: (eventName, data) => 
+        subscriptions[eventName].forEach(fn => fn(data))
 }

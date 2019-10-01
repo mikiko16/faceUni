@@ -12,12 +12,16 @@ import Create from './Components/posts/CreatePost'
 import PostList from './Components/posts/PostList';
 import Details from './Components/User/Details';
 import AllUsers from './Components/common/AllUsers'
+import EditProfile from './Components/User/EditProfile';
+import Notification from './Components/common/Notifications';
+import Geolocation from './Components/common/Geolocation';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <main className="content">
+          <Notification />
           <Header />
           <Route path='/' exact component={Login}/> 
           <Route path='/register' component={Register}/>
@@ -29,6 +33,8 @@ class App extends Component {
           <Route path='/myPosts' component={PostList} />
           <Route path='/details/:id' component={Details}/>
           <Route path='/allUsers' component={AllUsers} />
+          <Route path='/editProfile' component={EditProfile} />
+          <Route path='/geolocation' component={Geolocation}/>
         </main>
       </div>
     );

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import observer from '../../infrastructure/observer'
 import { Link } from 'react-router-dom'
 import '../../styles/login.css'
+import userService from '../../services/userService';
 
 class Header extends Component {
 
@@ -18,6 +19,15 @@ class Header extends Component {
         this.setState({ username })
     }   
 
+    checkForAdmin() {
+        if(userService.isAdmin(sessionStorage.getItem('username'))) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     render = () => {
         const loggedInSection = 
         <div className='login'>
@@ -30,7 +40,7 @@ class Header extends Component {
         return (
             <header>
                 {sessionStorage.getItem('username') ? loggedInSection : null}
-                {sessionStorage.getItem('username') === 'admin@softuni.bg' ? adminSection : null}
+                {!this.checkForAdmin ? adminSection : null}
             </header> 
                 )       
     }

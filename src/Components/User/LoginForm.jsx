@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
-import requester from '../../infrastructure/requester'
-import observer from '../../infrastructure/observer'
+import { NavLink } from 'react-router-dom';
+import userService from '../../services/userService';
 
 class Login extends Component {
 
@@ -14,25 +13,13 @@ class Login extends Component {
     }
   }
 
-  login = ev => {
+  login = (ev) => {
     ev.preventDefault()
-    console.log(this.state)
-    requester.post('user', 'login', 'basic', this.state).then(res => {
-      sessionStorage.setItem('authtoken', res._kmd.authtoken);
-      sessionStorage.setItem('username', res.username);
-      sessionStorage.setItem('id', res._id);
-      observer.trigger(observer.events.loginUser, res.username)
-      console.log(res);
-      if((res._kmd).hasOwnProperty('roles')){
-        this.props.history.push('/allUsers')
-      }
-      else{
-        this.props.history.push('/navigation')
-      }
-    })
+    userService.login(this.state, {...this.props})
   }
 
   setProps = ev => {
+    ev.preventDefault();
     let fieldName = ev.target.name;
     let fieldValue = ev.target.value;
     this.setState({[fieldName]: fieldValue})
@@ -51,6 +38,8 @@ class Login extends Component {
             <input type="submit" value="Login" className="login-submit" />
             <h1>or</h1>
             <NavLink to='/register'>Register</NavLink>
+            <h1>or</h1>
+            <NavLink to='/geolocation'>Show me Where Am I</NavLink>
             </form>
           </div>
         )

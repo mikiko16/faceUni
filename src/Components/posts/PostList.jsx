@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Post from './Post'
-import requester from '../../infrastructure/requester'
+import Post from './Post';
+import requester from '../../infrastructure/requester';
+import observer from '../../infrastructure/observer';
 
 class PostList extends Component {
 
@@ -18,7 +19,9 @@ class PostList extends Component {
         this.setState({ posts: res })
     })
 
-    componentDidMount = () => this.getPosts()
+    componentDidMount = () => {
+        this.getPosts();
+    }
 
     render = () => {
         return (

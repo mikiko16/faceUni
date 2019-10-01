@@ -11,13 +11,8 @@ class Details extends Component {
     }
 
     showInfo = () => {
-        fetch(`https://baas.kinvey.com/appdata/kid_HkSr36xQm/info?query={"_acl.creator":"${this.props.match.params.id}"}&sort={"_kmd.ect": -1}`,
-        {
-            method: 'GET',
-            headers: {
-                Authorization: 'Kinvey ' + sessionStorage.getItem('authtoken')
-            }
-        }).then(res => {return res.json()}).then(result => this.setState({profile: result[0]}))
+        requester.get('appdata', `info?query={"_acl.creator":"${this.props.match.params.id}"}&sort={"_kmd.ect": -1}`, 'kinvey')
+        .then(result => this.setState({profile: result[0]}))
     }
 
     componentDidMount = () => this.showInfo()

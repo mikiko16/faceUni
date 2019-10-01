@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../styles/login.css'
-import requester from '../../infrastructure/requester'
+import requester from '../../infrastructure/requester';
+import observer from '../../infrastructure/observer';
 
 class CreatePost extends Component {
 
@@ -13,7 +14,8 @@ class CreatePost extends Component {
             image: null,
             feel: null,
             location: null,
-            likes: 0
+            likes: 0,
+            comments:[{null: null}]
         }
     }
 
@@ -37,7 +39,11 @@ class CreatePost extends Component {
     
     CreatePost = (ev) => {
         ev.preventDefault();        
-        requester.post('appdata', 'posts', 'kinvey', this.state).then(this.props.history.push('/navigation'))
+        requester.post('appdata', 'posts', 'kinvey', this.state)
+        .then(res => observer.trigger(observer.events.notification, { type: 'success', message: "Posted Successful" }))
+        .then(this.props.history.push('/navigation'))
+        .catch(err => observer.trigger(observer.events.notification, { type: 'error', message: "Not Posted" }))
+
     }
 
     render = () => {

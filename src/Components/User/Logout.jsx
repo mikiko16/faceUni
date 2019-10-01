@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import requester from '../../infrastructure/requester'
+import observer from '../../infrastructure/observer';
 
 class Logout extends Component {
-    componentDidMount() {
-        sessionStorage.clear()
+    
+    logout = () => {
         requester.post('user', '_logout', 'kinvey')
-        .then(res => this.props.history.push('/'))
-        console.log('I am logout')
+        observer.trigger(observer.events.notification, { type: '', message: "" })
+        sessionStorage.clear()
     }
 
     render = () => {
-        return(
-            <Redirect to='/'/>
-        )
+        this.logout()
+        return <Redirect to='/' />
     }
 }
 

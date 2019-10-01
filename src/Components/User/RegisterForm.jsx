@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import '../../styles/login.css'
 import { NavLink } from 'react-router-dom'
-import requester from '../../infrastructure/requester'
-import observer from '../../infrastructure/observer'
+import userService from '../../services/userService'
 
 class Register extends Component {
 
@@ -15,16 +14,9 @@ class Register extends Component {
         }
     }
 
-    register = ev => {
+    register = (ev) => {
         ev.preventDefault()
-        requester.post('user', '', 'basic', this.state)
-        .then(res => {
-            sessionStorage.setItem('authtoken', res._kmd.authtoken)
-            sessionStorage.setItem('username', res.username)
-            sessionStorage.setItem('id', res._id);
-            observer.trigger(observer.events.loginUser, res.username)
-            this.props.history.push('/createUser');
-        })
+        userService.register(this.state, {...this.props});
     }
 
     setParams = ev => {
@@ -38,7 +30,7 @@ class Register extends Component {
         return (
             <div>
             <title>FaceUni Register Form</title>
-            <form className="login" onSubmit={this.register.bind(this)}>
+            <form className="login" onSubmit={this.register}>
             <h1>Please Register</h1>
             <h1>Enter Email</h1>
             <input type="text" name="username" onChange={this.setParams} className="login-input"/>
